@@ -1,0 +1,70 @@
+/*
+  Copyright 2019 www.dev5.cn, Inc. dev5@qq.com
+ 
+  This file is part of X-MSG-IM.
+ 
+  X-MSG-IM is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  X-MSG-IM is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+ 
+  You should have received a copy of the GNU Affero General Public License
+  along with X-MSG-IM.  If not, see <https://www.gnu.org/licenses/>.
+ */
+syntax = "proto3";
+
+option java_package = "x.msg.pb";
+option java_outer_classname = "XmsgOssMgrUsrPb";
+message XmsgOssInfoQueryReq
+{
+    string oid = 1; 
+    map<string, string> ext = 2; 
+}
+
+message XmsgOssInfoQueryRsp
+{
+    string cgt = 1; 
+    string hashVal = 2; 
+    string objName = 3; 
+    string storePath = 4; 
+    uint64 objSize = 5; 
+    uint64 gts = 6; 
+}
+message XmsgImHlrUsrAuthInfoQueryReq
+{
+    string token = 1; 
+    string cgt = 2; 
+}
+
+message XmsgImHlrUsrAuthInfoQueryRsp
+{
+    string secret = 1; 
+    uint64 gts = 2; 
+    uint64 expired = 3; 
+    XmsgImClientDeviceInfo info = 4; 
+    map<string, string> ext = 5; 
+}
+message XmsgImGroupObjInfoQueryReq
+{
+    string ucgt = 1; 
+    string gcgt = 2; 
+    string oid = 3; 
+}
+
+message XmsgImGroupObjInfoQueryRsp
+{
+    string ucgt = 1; 
+    uint64 gts = 2; 
+}
+message XmsgImClientDeviceInfo
+{
+    string plat = 1; 
+    string did = 2; 
+    string ver = 3; 
+    map<string, string> ext = 4; 
+}
